@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { buttonStyle, containerStyle, detailsImageStyle, infoStyle, titleStyle } from "../Style";
 
 const ProductDetails = ({ onAddToCart }) => {
     const { id, name, writer, price, img } = useParams(); 
@@ -15,17 +14,14 @@ const ProductDetails = ({ onAddToCart }) => {
     };
 
     return (
-        <div style={containerStyle}>
-            <h1 style={titleStyle}>פרטי היצירה</h1>
-            <p style={infoStyle}>שם היצירה: {name}</p>
-            <p style={infoStyle}>אומן: {writer}</p>
-            <p style={infoStyle}>מחיר: ₪{price}</p>
-            <img style={detailsImageStyle} src={`/images/${img}`} alt={name} />
+        <div className="product-details">
+            <h1>פרטי היצירה</h1>
+            <p >שם היצירה: {name}</p>
+            <p >אומן: {writer}</p>
+            <p >מחיר: ₪{price}</p>
+            <img src={`/images/${img}`} alt={name} />
             <button
-                onClick={handleAddToCart}
-                style={buttonStyle}
-                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#0056b3")}
-                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#007bff")}>
+                onClick={handleAddToCart}>
                 הוספה לסל
             </button>
         </div>
