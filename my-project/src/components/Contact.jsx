@@ -60,7 +60,7 @@ function Contact() {
             <div className="directions-info">
                 <h3>דרכי הגעה:</h3>
                 <h3>רחוב ההצלה 12, תל אביב</h3>
-                <h5>קווים: 49,58,124</h5>
+                <h3>קווים: 49,58,124</h3>
             </div>
             <form className="contact-form" onSubmit={handleSubmit} >
                 <input

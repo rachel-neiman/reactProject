@@ -87,7 +87,7 @@ function MyApp() {
         <NavBar />
       </div>
       <div className="header-content">
-        <h1>הגלריה</h1>
+        <h1>1of135 - הגלריה </h1>
         <nav>
           <Link to="/">דף הבית</Link>
           <Link to="/about">אודות</Link>

@@ -4,7 +4,7 @@ import MyContext from '../context/Context';
 
 const UserManagement = () => {
   const store = useContext(MyContext);
-  const { users, setUsers } = store;  // Destructure from store
+  const { users, setUsers } = store;
   const [editingUser, setEditingUser] = useState(null);
   const [newUser, setNewUser] = useState({
     id: users.length + 1,

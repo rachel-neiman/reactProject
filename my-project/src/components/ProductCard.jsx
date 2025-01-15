@@ -13,17 +13,17 @@ function ProductCard({ product,remove }) {
             <p >{product.name}</p>
 
 
-            {currentUser && currentUser.role === "manager" ? (
-            <button
-              className="delete-button"
-              onClick={() => remove(product.id)}  >
-              מחק
-            </button>
+          {currentUser && currentUser.role === "manager" ? (
+              <button
+                  className="delete-btn"
+                  onClick={() => remove(product.id)}>
+                  מחק
+              </button>
           ) : (
-            <Link
-                to={`/ProductDetails/${product.id}/${product.name}/${product.writer}/${product.price}/${product.img}`}>
-                לפרטים
-            </Link>
+              <Link  className="details-link"
+                  to={`/ProductDetails/${product.id}/${product.name}/${product.writer}/${product.price}/${product.img}`}>
+                  לפרטים
+              </Link>
           )}
 
         </div>

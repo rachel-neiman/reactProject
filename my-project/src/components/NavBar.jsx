@@ -2,15 +2,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import MyContext from '../context/Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 function NavBar() {
     const { currentUser, logout } = useContext(MyContext);
     const nav = useNavigate();
 
     const handleLogout = () => {
-        logout(); // קריאה לפונקציית ההתנתקות מתוך הקונטקסט
-        nav("/"); // ניווט לעמוד הבית לאחר ההתנתקות
+        logout();
+        nav("/");
     };
 
     return (
@@ -24,15 +24,18 @@ function NavBar() {
                     </Link>
                 </>
             ) : (
-                 <>
+                <>
                     <Link to="/profile">
                         {currentUser.userName}
                     </Link>
-                    <button onClick={handleLogout}>התנתקות</button>
+                    <button 
+                        onClick={handleLogout}
+                    >
+                        <FontAwesomeIcon icon={faSignOutAlt} />
+                        התנתקות
+                    </button>
                 </>
             )}
-
-
         </nav>
     );
 }

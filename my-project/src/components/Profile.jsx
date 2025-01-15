@@ -3,6 +3,7 @@ const Profile = () => {
 
     
     return <>
+      <h1>הפרופיל שלי</h1>
     </>
 };
 
