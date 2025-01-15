@@ -9,7 +9,7 @@ function Log() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  //יבוא הקונטקסט
+
   const { register, login } = useContext(MyContex);
   const onLogin = () => {
     if (login(email, password)) {

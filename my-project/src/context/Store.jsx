@@ -22,7 +22,6 @@ export const CreateStore = () => {
           return false;
         } else {
           setCurrentUser(user);
-          alert("התחברת בהצלחה");
           return true;
         }
       },
@@ -42,13 +41,11 @@ export const CreateStore = () => {
           newUser.id = [users.lengt - 1].id + 1;
           setUsers([...users, newUser]);
           setCurrentUser(newUser);
-          console.log("הרשמתך בוצעה בהצלחה");
           return true;
         }
       },
       logout: () => {
         setCurrentUser(null);
-        console.log("התנתקת בהצלחה");
       },
     };
 }

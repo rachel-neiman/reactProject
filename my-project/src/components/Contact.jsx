@@ -55,7 +55,7 @@ function Contact() {
 
     return <>
         <div>
-            <h1>דרכי יצירת קשר:</h1>
+            <h1 className="directions-info">דרכי יצירת קשר</h1>
 
             <div className="directions-info">
                 <h3>דרכי הגעה:</h3>

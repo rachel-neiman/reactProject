@@ -76,7 +76,7 @@ function MyApp() {
         <div style={{ textAlign: 'right', marginTop: '10px' }}>
           <strong>סה"כ: ₪{totalAmount}</strong>
         </div>
-        <button onClick={() => toCart()}>למעבר לעגלה</button>
+        <button   className="delete-btn" onClick={() => toCart()}>למעבר לעגלה</button>
       </div>
     )}
 
@@ -87,7 +87,7 @@ function MyApp() {
         <NavBar />
       </div>
       <div className="header-content">
-        <h1>1of135 - הגלריה </h1>
+        <h1>1of135 - גלריה </h1>
         <nav>
           <Link to="/">דף הבית</Link>
           <Link to="/about">אודות</Link>

@@ -1,5 +1,6 @@
-function Cart({ cartItems, setCartItems, totalAmount, setTotalAmount ,setCartCount}) {
-  
+import { Link } from 'react-router-dom';
+
+function Cart({ cartItems, setCartItems, totalAmount, setTotalAmount, setCartCount }) {
   const increaseQuantity = (id) => {
     const itemToUpdate = cartItems.find((item) => item.id === id);
     if (itemToUpdate) {
@@ -11,7 +12,7 @@ function Cart({ cartItems, setCartItems, totalAmount, setTotalAmount ,setCartCou
       setCartCount((prevCount) => prevCount + 1);
     }
   };
-  
+
   const decreaseQuantity = (id) => {
     const itemToUpdate = cartItems.find((item) => item.id === id);
     if (itemToUpdate.quantity > 1) {
@@ -25,7 +26,6 @@ function Cart({ cartItems, setCartItems, totalAmount, setTotalAmount ,setCartCou
       removeItem(id);
     }
   };
-  
 
   const removeItem = (id) => {
     const itemToRemove = cartItems.find((item) => item.id === id);
@@ -36,33 +36,35 @@ function Cart({ cartItems, setCartItems, totalAmount, setTotalAmount ,setCartCou
       setCartCount((prevCount) => prevCount - itemToRemove.quantity);
     }
   };
-  
 
   return (
     <div className="cart-container">
-      <h1 >סל הקניות</h1>
-      <div >
-        {cartItems.map((item, index) => (
-          <div key={index}  className="cart-item" >
-            <img src={`/images/${item.img}`} alt={item.name}  />
-            <div  className="cart-item-details">
-              <h3 style={{ margin: '0 0 10px 0' }}>{item.name}</h3>
-              <p style={{ margin: '5px 0' }}>אומן: {item.writer}</p>
-              <p style={{ margin: '5px 0' }}>מחיר: ₪{item.price}</p>
-              <div className="quantity-controls">
-                <button onClick={() => decreaseQuantity(item.id)}>➖</button>
-                <span style={{ margin: '0 10px' }}>{item.quantity}</span>
-                <button onClick={() => increaseQuantity(item.id)}>➕</button>
-              </div>
-              <button className="remove-button"  onClick={() => removeItem(item.id)} style={{ marginTop: '10px' }}>מחק פריט</button>
+      <h1>סל הקניות</h1>
+      {cartItems.map((item, index) => (
+        <div key={index} className="cart-item">
+          <img src={`/images/${item.img}`} alt={item.name} />
+          <div className="cart-item-details">
+            <h3>{item.name}</h3>
+            <p>אומן: {item.writer}</p>
+            <p>מחיר: ₪{item.price}</p>
+            <div className="quantity-controls">
+              <button onClick={() => decreaseQuantity(item.id)}>➖</button>
+              <span>{item.quantity}</span>
+              <button onClick={() => increaseQuantity(item.id)}>➕</button>
             </div>
+            <button onClick={() => removeItem(item.id)}>מחק פריט</button>
           </div>
-        ))}
-        <div className="cart-total">
-          סה"כ לתשלום: ₪{totalAmount}
         </div>
-      </div>
+      ))}
+      <div className="cart-total">סה"כ לתשלום: ₪{totalAmount}</div>
+      <Link to="/payment" state={{ cartItems, totalAmount }}>
+        <button>לתשלום</button>
+      </Link>
+      {/* <Link to="/produc">
+        <button>חזרה לדף המוצרים</button>
+      </Link> */}
     </div>
   );
 }
+
 export default Cart;
